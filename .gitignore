@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Data (downloaded at runtime, not committed)
+data/*
+!data/.gitkeep
+
+# Generated artifacts
+outputs/*
+!outputs/.gitkeep
+
+# Fine-tuned model checkpoints
+models/*
+!models/.gitkeep
+
+# Model/HF caches
+.cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+
+# Jupyter (legacy notebook removed; ignore any stray checkpoints)
+.ipynb_checkpoints/
