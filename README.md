@@ -38,8 +38,4 @@ Outputs land in `outputs/` (`generated_captions.csv`, `sample_captions.png`) and
 pytest
 ```
 
-## Why these changes
-
-The original notebook trained an InceptionV3 (frozen) + GloVe + LSTM encoder-decoder entirely from scratch on Flickr8k's ~8,000 images, reaching only ~40% next-word accuracy after 10 epochs - captions were rough and the vocabulary was capped at ~1,240 words seen at least 10 times in training.
-
 Fine-tuning `nlpconnect/vit-gpt2-image-captioning` instead starts from a model already trained on a large captioning corpus (COCO), with both its vision encoder and language decoder already competent at the task. Fine-tuning on Flickr8k then only needs to adapt that existing captioning ability to this dataset's images and caption style, rather than learning to caption from nothing - producing more fluent, accurate captions from the same amount of labeled data. Evaluation is also more rigorous: BLEU is computed against all of Flickr8k's reference captions per image, rather than only inspecting a couple of qualitative examples via greedy/beam search as the notebook did.
